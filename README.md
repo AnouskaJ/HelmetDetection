@@ -24,7 +24,7 @@ The project includes a Flask-based API that integrates the trained YOLOv3 models
 
 Here's an example of an image processed by the system:
 
-![Sample Image](https://github.com/AnouskaJ/HelmetDetection/assets/82711261/2c363063-9f31-46b0-8141-e449f557b9da)
+![Sample Image](https://github.com/AnouskaJ/HelmetDetection/assets/82711261/3e4d0493-d148-4a5e-a313-252ab07bce44)
 
 The project demonstrates the capabilities of YOLOv3 models in detecting critical objects for road safety.
 
