@@ -4,7 +4,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Initialize YOLO model and label paths
 helmet_detection_path = 'helmet-detection/'
 wts1_path = helmet_detection_path + 'yolov3-helmet.weights'
 cfgn1_path = helmet_detection_path + 'yolov3-helmet.cfg'
@@ -16,23 +15,18 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    # Check if a file was uploaded
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
 
     file = request.files['file']
 
-    # If the user does not select a file, return an error message
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
 
-    # Read the uploaded image
     image = cv2.imdecode(np.fromstring(file.read(), np.uint8), cv2.IMREAD_COLOR)
 
-    # Call detect_helmet to get the helmet image
     helmet_image = detect_helmet(image)
 
-    # Save the detected helmet image
     helmet_image_path = 'static/helmet_result.jpg'
     cv2.imwrite(helmet_image_path, helmet_image)
 
